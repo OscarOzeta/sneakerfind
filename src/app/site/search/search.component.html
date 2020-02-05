@@ -1,0 +1,52 @@
+<header id="header">
+  <h1>SneakerFind</h1>
+</header>
+
+<div>
+  <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm.value)">
+    <div class="form-group">
+      <label for="title"> Type in the name of a sneaker!</label>
+      <input type="text"
+             class="form-control"
+             id="title"
+             required
+             ngModel
+             name="title"/>
+      <input type="submit" value="Search"/>
+    </div>
+  </form>
+</div>
+
+<div>
+  <p *ngIf="loadedSneakers.length< 1"> No Sneakers Available</p>
+  <ul *ngIf="loadedSneakers.length > 0">
+    <li *ngFor="let post of loadedSneakers">
+      <h1> {{post.title}}</h1>
+    </li>
+  </ul>
+</div>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Brand</th>
+    <th>Retail Price</th>
+    <th>Image</th>
+  </tr>
+  <tr *ngFor="let sneaker of loadedSneakers">
+    <td>{{sneaker.title}}</td>
+    <td>{{sneaker.brand}}</td>
+    <td>{{sneaker.retailPrice}}</td>
+    <td>{{sneaker.media.imageUrl}}</td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<footer id="footer">
+  <ul class="icons">
+    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+    <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+  </ul>
+</footer>
