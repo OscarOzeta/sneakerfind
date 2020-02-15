@@ -19,11 +19,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(title: string) {
-    this.db.getSneakersByTitle(title)
-      .subscribe(
-        data => {
-          this.loadedSneakers = data;
-        }
-      );
+    this.db.getSneakersByTitle();
   }
 }
