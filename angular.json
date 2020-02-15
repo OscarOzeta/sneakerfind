@@ -28,9 +28,6 @@
               "src/assets/css/fontawesome-all.min.css"
             ],
             "scripts": [
-              {
-                "deploy": "ng build --prod --base-href https://oscarozeta.github.io/sneakerfind/ && angular-cli-ghpages --branch gh-pages"
-              }
             ]
           },
           "configurations": {
