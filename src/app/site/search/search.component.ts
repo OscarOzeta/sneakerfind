@@ -16,9 +16,10 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadedSneakers = this.db.getSneakers();
   }
 
   onSubmit(title: string) {
-    this.db.getSneakersByTitle();
+    this.loadedSneakers = this.db.getSneakerByTitle(title);
   }
 }

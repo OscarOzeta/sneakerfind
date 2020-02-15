@@ -15,7 +15,7 @@ export class SneakerdbService {
   constructor(private http: HttpClient) {
   }
 
-  getSneakersByTitle(): SneakerModel[] {
+  getSneakers(): SneakerModel[] {
     this.http.get<{ [key: string]: SneakerModel }>(this.URL)
       .pipe(map(responseData => {
           const postsArray: SneakerModel[] = [];
@@ -30,6 +30,10 @@ export class SneakerdbService {
       .subscribe(posts => {
         this.loadedPosts = posts;
       });
+    return this.loadedPosts;
+  }
+
+  getSneakerByTitle(title: string): SneakerModel[] {
     return this.loadedPosts;
   }
 }

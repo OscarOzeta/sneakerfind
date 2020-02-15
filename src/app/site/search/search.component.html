@@ -18,27 +18,17 @@
 </div>
 
 <div>
-  <p *ngIf = "loadedSneakers.length< 1"> No Sneakers Available</p>
   <ul *ngIf = "loadedSneakers.length > 0">
-    <li *ngFor = "let post of loadedSneakers">
-      <h1> {{post.name}}</h1>
-    </li>
+    <table>
+      <tr *ngFor = "let sneaker of loadedSneakers">
+        <td>{{sneaker.name}}</td>
+        <td>${{sneaker.price}}</td>
+        <td>{{sneaker.website}}</td>
+      </tr>
+    </table>
   </ul>
 </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Brand</th>
-    <th>Retail Price</th>
-    <th>Image</th>
-  </tr>
-  <tr *ngFor = "let sneaker of loadedSneakers">
-    <td>{{sneaker.name}}</td>
-    <td>{{sneaker.price}}</td>
-    <td>{{sneaker.website}}</td>
-  </tr>
-</table>
 
 <!-- Footer -->
 <!--<footer id = "footer">-->
