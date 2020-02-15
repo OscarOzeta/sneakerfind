@@ -15,7 +15,7 @@ export class SneakerdbService {
   constructor(private http: HttpClient) {
   }
 
-  getSneakersByTitle(): Observable<SneakerModel[]>[] {
+  getSneakersByTitle(): SneakerModel[] {
     this.http.get<{ [key: string]: SneakerModel }>(this.URL)
       .pipe(map(responseData => {
           const postsArray: SneakerModel[] = [];

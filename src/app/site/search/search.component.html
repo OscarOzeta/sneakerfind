@@ -3,7 +3,7 @@
 </header>
 
 <div>
-  <form #postForm = "ngForm" (ngSubmit) = "onSubmit()">
+  <form #postForm = "ngForm" (ngSubmit) = "onSubmit(postForm.value)">
     <div class = "form-group">
       <label for = "title"> Type in the name of a sneaker!</label>
       <input type = "text"
@@ -18,10 +18,10 @@
 </div>
 
 <div>
-  <p *ngIf = ".length< 1"> No Sneakers Available</p>
+  <p *ngIf = "loadedSneakers.length< 1"> No Sneakers Available</p>
   <ul *ngIf = "loadedSneakers.length > 0">
     <li *ngFor = "let post of loadedSneakers">
-      <h1> {{post.title}}</h1>
+      <h1> {{post.name}}</h1>
     </li>
   </ul>
 </div>
@@ -34,10 +34,9 @@
     <th>Image</th>
   </tr>
   <tr *ngFor = "let sneaker of loadedSneakers">
-    <td>{{sneaker.title}}</td>
-    <td>{{sneaker.brand}}</td>
-    <td>{{sneaker.retailPrice}}</td>
-    <td>{{sneaker.media.imageUrl}}</td>
+    <td>{{sneaker.name}}</td>
+    <td>{{sneaker.price}}</td>
+    <td>{{sneaker.website}}</td>
   </tr>
 </table>
 
